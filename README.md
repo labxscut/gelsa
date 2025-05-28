@@ -21,6 +21,16 @@ Furthermore, for a fixed number of factors (m=2000) and varying time series leng
 
 Figure 2. In Fig. 2, we meticulously assessed GeLSA's accuracy by comparing its results with those obtained from eLSA using the simulation data, including LS (local similarity score), P_value (p-value), Xs (alignment start position of X), Ys (alignment start position of Y), Len (aligned length), and Delay (alignment shift). Each scatter subplot in Fig. 2 demonstrates a diagonal pattern, representing the identity between corresponding variables from GeLSA and eLSA, including LS, P_value, Xs, Ys, Len, and Delay. The fitted lines all had R<sup>1</sup> values of 1, except singleton cases due to rounding errors. The near-perfect concordance in all six comparisons provides strong evidence that GeLSA’s results are identical to eLSA's. This level of consistency demonstrates the correctness of GeLSA as an alternative method for performing LSA, ensuring both reliability and accuracy.
 
+Docker
+----------------
+(1). We provide a convenient multi-core CPU version of the GELSA Docker, which can be used on all computers.
+        docker build -t my-ubuntu-image .          # make the gelsa images
+        docker run -it --rm my-ubuntu-image        # Enter the gelsa container for interactive operations.
+
+        bash CPU_command.sh
+
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p theo -T 0.1
+
 INSTALL
 -----------------
 (1). # for use #
