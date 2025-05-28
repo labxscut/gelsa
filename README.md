@@ -24,6 +24,8 @@ Figure 2. In Fig. 2, we meticulously assessed GeLSA's accuracy by comparing its 
 Docker
 ----------------
 (1). We provide a convenient multi-core CPU version of the GELSA Docker, which can be used on all computers.
+        
+        
         docker build -t my-ubuntu-image .          # make the gelsa images
         docker run -it --rm my-ubuntu-image        # Enter the gelsa container for interactive operations.
 
