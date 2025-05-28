@@ -29,7 +29,7 @@ Docker
         docker build -t my-ubuntu-image .          # make the gelsa images
         docker run -it --rm my-ubuntu-image        # Enter the gelsa container for interactive operations.
 
-        bash CPU_command.sh
+        bash CPU_command.sh                        # Run commands in the container
 
         lsa_compute test.txt result -d 10 -r 1 -s 50 -p theo -T 0.1
 
