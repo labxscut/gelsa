@@ -680,7 +680,9 @@ def myfunc(i):
       lsaP[j] = readPvalue(Xp, Yp,manager.P_table, R=np.abs(Smax[j])*manager.lengthSeries, N=manager.lengthSeries, 
       x_sd=manager.stdX, M=manager.replicates, alpha=1.,beta=1., x_decimal=my_decimal, trendThresh=manager.trendThresh)
 
-    if (manager.pvalueMethod in ['mix'] and manager.lsaP[j]<=promisingP) or (manager.pvalueMethod in ['perm']):
+    # if (manager.pvalueMethod in ['mix'] and manager.lsaP[j]<=promisingP) or (manager.pvalueMethod in ['perm']):
+    
+    if (manager.pvalueMethod in ['mix']) or (manager.pvalueMethod in ['perm']):
       Xp = np.ma.array(manager.x_series[i],copy=True)
       Yp = np.ma.array(manager.y_series[j],copy=True)
       lsaP[j] = permuPvalue(Xp, Yp, manager.delayLimit, manager.col, manager.precisionP, 

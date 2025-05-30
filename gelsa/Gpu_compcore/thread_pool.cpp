@@ -188,6 +188,6 @@ void thread_pool_compcore(float* x,
     unsigned int logicalCoreCount = sysconf(_SC_NPROCESSORS_ONLN);
     unsigned int thread_num = 4*logicalCoreCount;
     // cout<<"thread_num:\t"<<thread_num<<endl;
-    cout << "Gelsa analysis with muti_cpu logicalCoreCount:" << logicalCoreCount << endl;
+    // cout << "Gelsa analysis with muti_cpu logicalCoreCount:" << logicalCoreCount << endl;
     ThreadPool pool(thread_num ,num_01,num_02,shift,COL,x,y,score,x_0,x_1,y_0,y_1);
 }

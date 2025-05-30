@@ -50,5 +50,6 @@ RUN cd ./gelsa && \
 # lsa_compute test.txt result -d 10 -r 1 -s 50 -p theo -T 0.1
 # lsa_compute test.txt result -d 10 -r 1 -s 50 -p ddlsa -T 0.1
 # lsa_compute test.txt result -d 10 -r 1 -s 50 -p perm -T 0.1
-# lsa_compute test.txt result -d 10 -r 1 -s 50 -p stlta -T 0.1
+# lsa_compute test.txt result -d 10 -r 1 -s 50 -p mix -T 0.1
 # lsa_compute test.txt result -d 10 -r 1 -s 50 -p bblsa -T 0.1
+# lsa_compute test.txt result -d 10 -r 1 -s 50 -p stlta -T 0.1
