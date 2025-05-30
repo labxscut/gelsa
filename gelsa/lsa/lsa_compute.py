@@ -158,7 +158,9 @@ def main():
         extraFile_name = extraFile.name 
     except AttributeError:
         extraFile_name = ''
+
     assert trendThresh==None or trendThresh>=0
+    
     if transFunc == 'SD':
         fTransform = lsalib.sdAverage
     elif transFunc == 'Med':

@@ -182,7 +182,7 @@ void gpu_compcore(float* x,
 	cudaGetDeviceCount(&gpuCount);//获取显卡设备数量
 	// cout << "gpuGount:\n" << gpuCount << endl;
 	// if (gpuCount < 0)
-	// cout << "Gelsa analysis with gpu" << endl;
+	cout << "Gelsa analysis with gpu" << endl;
 	cudaSetDevice(0);//选取显卡设备 
 
 	cudaDeviceProp prop;
