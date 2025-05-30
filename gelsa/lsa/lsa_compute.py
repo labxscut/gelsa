@@ -149,10 +149,10 @@ def main():
             print("RunIput:pvalueMethod '{}' cannot apply analysis with trendThresh set to None(i.e. trendThresh=None).".format(pvalueMethod))
             return
 
-    elif trendThresh is not None:
-        if pvalueMethod in ["ddlsa", "bblsa"]:
-            print("RunIput:pvalueMethod '{}' cannot apply analysis with trendThresh set to {}.".format(pvalueMethod, trendThresh))
-            return
+    # elif trendThresh is not None:
+    #     if pvalueMethod in ["ddlsa", "bblsa"]:
+    #         print("RunIput:pvalueMethod '{}' cannot apply analysis with trendThresh set a value.".format(pvalueMethod))
+    #         return
 
     try:
         extraFile_name = extraFile.name 

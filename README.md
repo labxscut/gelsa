@@ -26,12 +26,17 @@ Docker
 (1). We provide a convenient multi-core CPU version of the GELSA Docker, which can be used on all computers.
         
         
-        docker build -t my-ubuntu-image .          # make the gelsa images
-        docker run -it --rm my-ubuntu-image        # Enter the gelsa container for interactive operations.
+        docker build -t my-gelsa .          # make the gelsa images
+        docker run -it --rm my-gelsa        # Enter the gelsa container for interactive operations.
 
-        bash CPU_command.sh                        # Run commands in the container
+        # Execute the following commands to test GeLSA.
 
         lsa_compute test.txt result -d 10 -r 1 -s 50 -p theo -T 0.1
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p mix -T 0.1
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p ddlsa -T 0.1
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p stlta -T 0.1
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p perm -T 0.1
+        lsa_compute test.txt result -d 10 -r 1 -s 50 -p bblsa -T 0.1
 
 INSTALL
 -----------------
