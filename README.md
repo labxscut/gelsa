@@ -17,7 +17,7 @@ When combining the core-level algorithm with outer-layer parallelization, on an 
 
 Furthermore, for a fixed number of factors (m=2000) and varying time series lengths (n from 10000 to 100000), as shown in (Fig. 1d), we can clearly see that the GeLSA-GPU curve maintains a linear trend. This highlights that as the time series length increases, the benefits of the improved algorithm become even more apparent. The computation time on the GPU consistently stayed below 10 seconds, while eLSA on datasets with 1000 time points took up to 200 seconds.
 
-<img src="./images/fig4.jpg" alt="fig4.jpg" width="450" height="550" />
+<img src="./images/fig2.jpg" alt="fig2.jpg" width="450" height="600" />
 
 Figure 2. In Fig. 2, we meticulously assessed GeLSA's accuracy by comparing its results with those obtained from eLSA using the simulation data, including LS (local similarity score), P_value (p-value), Xs (alignment start position of X), Ys (alignment start position of Y), Len (aligned length), and Delay (alignment shift). Each scatter subplot in Fig. 2 demonstrates a diagonal pattern, representing the identity between corresponding variables from GeLSA and eLSA, including LS, P_value, Xs, Ys, Len, and Delay. The fitted lines all had R<sup>1</sup> values of 1, except singleton cases due to rounding errors. The near-perfect concordance in all six comparisons provides strong evidence that GeLSA’s results are identical to eLSA's. This level of consistency demonstrates the correctness of GeLSA as an alternative method for performing LSA, ensuring both reliability and accuracy.
 
