@@ -9,7 +9,7 @@ GeLSA (GPU-accelerated extended Local Similarity Analysis) this novel multi-core
 METHODS
 -------------
 
-<img src="./images/fig2.jpg" alt="fig2.jpg" width="450" height="400" />
+<img src="./images/fig2.jpg" alt="fig2.jpg" width="450" height="450" />
 
 Figure 1. We assessed GeLSA’s computational efficiency and found significant improvement. We compared the running time efficiency of GeLSA’s core-level algorithm to that of eLSA on a single CPU core (Fig. 1a). With a fixed series length (n=100), GeLSA’s core algorithm consistently reduced the running time compared to eLSA across dataset sizes ranging from m=200 to m=5000, achieving an average acceleration rate of 1.94, with a variance of only 0.009086.With a fixed number of factors (m=2000) and varying series lengths (n=100 to n=1000), we can clearly observe in (Fig. 1b) that the eLSA computation time curve follows a quadratic pattern, whereas the GeLSA curve remains linear. This indicates that as the time series length increases, the advantage of the improved algorithm becomes more pronounced.
 
