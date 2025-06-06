@@ -54,10 +54,13 @@ Firstly, in Linux install the prerequisites: C++ (build-essential), Python(dev).
 
 Then, download and unzip the latest main branch to the gelsa folder.
 
-        sudo bash CPU_command.sh                  # make lsa package and computate by using cpu
+        sudo bash CPU_command.sh               # make lsa package and computate by using cpu
         sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
-        sudo bash GPU_command.sh               # To create an LSA package that can utilize GPU acceleration when available(Ubuntu 22.04 Required)
+
+        # To create an LSA package that can utilize GPU acceleration when available(Ubuntu 22.04 Required)
+        
+        sudo bash GPU_command.sh               
         sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
 
