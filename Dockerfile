@@ -41,8 +41,7 @@ RUN cd ./gelsa/Cpu_compcore/ && \
 # Install Python package
 RUN cd ./gelsa && \
     pip install --no-cache-dir . && \
-    cd .. && \
-    python in_out_data.py
+    cd ..
 
 # docker build -t my-gelsa .
 # docker run -it --rm my-gelsa
