@@ -58,7 +58,7 @@ Then, download and unzip the latest main branch to the gelsa folder.
         sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
 
-        # To create an LSA package that can utilize GPU acceleration when available(Ubuntu 22.04 Required)
+        # To create an LSA (Latent Semantic Analysis) package with automatic GPU acceleration when available (requires Ubuntu 20.04, 22.04, or 24.04)
         
         sudo bash GPU_command.sh               
         sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
