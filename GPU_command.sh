@@ -22,7 +22,11 @@ if [[ "$version_ubuntu" != "20.04" && "$version_ubuntu" != "22.04" && "$version_
 fi
 
 if [[ "$version_ubuntu" == "24.04" ]]; then
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
+    pip install --break-system-packages scipy
+    pip install --break-system-packages statsmodels
+    pip install --break-system-packages pandas
+    pip install --break-system-packages numpy
+    pip install --break-system-packages argparse
 else
     pip install scipy statsmodels pandas numpy argparse
 fi
@@ -31,6 +35,7 @@ py=$(python3 --version 2>&1 | cut -d' ' -f2 | cut -d. -f1-2)
 
 if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip uninstall --break-system-packages lsa
+    pip install --break-system-packages scipy statsmodels pandas numpy argparse
 else
     sudo pip uninstall -y lsa
 fi
@@ -44,6 +49,7 @@ cd ./Gpu_compcore/
 
 # Download appropriate CUDA keyring
 if [[ "$version_ubuntu" == "24.04" ]]; then   # 12.5.1
+    pip install --break-system-packages scipy statsmodels pandas numpy argparse
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
     sudo dpkg -i cuda-keyring_1.1-1_all.deb
     sudo apt-get update
@@ -123,6 +129,7 @@ fi
 cd ../
 if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip install --break-system-packages .   # setup.py自动识别
+    pip install --break-system-packages scipy statsmodels pandas numpy argparse
 else
     sudo pip install .
 fi

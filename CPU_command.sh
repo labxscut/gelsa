@@ -5,8 +5,12 @@ sudo apt-get update && sudo apt-get install -y lsb-release
 
 version_ubuntu=$(lsb_release -sr)
 
-if [[ "$version_ubuntu" == "24.04" ]]; then
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
+if [[ "$version_ubuntu" == "24.04" ]]; then    
+    pip install --break-system-packages scipy
+    pip install --break-system-packages statsmodels
+    pip install --break-system-packages pandas
+    pip install --break-system-packages numpy
+    pip install --break-system-packages argparse
 else
     pip install scipy statsmodels pandas numpy argparse
 fi
@@ -15,6 +19,7 @@ echo "$py"
 
 if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip uninstall --break-system-packages lsa
+    pip install --break-system-packages scipy statsmodels pandas numpy argparse
 else
     sudo pip uninstall -y lsa
 fi
@@ -37,6 +42,7 @@ g++ -std=c++11 -fPIC -shared \
 cd ../
 if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip install --break-system-packages .   # setup.py自动识别
+    pip install --break-system-packages scipy statsmodels pandas numpy argparse
 else
     sudo pip install .
 fi
