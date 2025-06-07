@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Check if the OS is Ubuntu
@@ -59,7 +58,7 @@ sudo rm -rf build/ dist/ lsa.egg-info/
 cd ./Gpu_compcore/
 
 /usr/local/cuda-12.6/bin/nvcc -Xcompiler -fPIC \
-    -ccbin /usr/bin/gcc-14 \
+    -ccbin /usr/bin/gcc-9 \
     -std=c++14 \
     -c ./compcore.cu \
     -o ./libcompcore.o
