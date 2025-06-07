@@ -1,0 +1,30 @@
+apt-get update && apt-get install -y wget sudo python3.10 python3.10-dev python3-pip
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+pip install scipy statsmodels pandas numpy argparse
+
+
+
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-3
+
+
+/usr/local/cuda-12.3/bin/nvcc -Xcompiler -fPIC \
+-ccbin /usr/bin/gcc-11 \
+-std=c++14 \
+-c ./compcore.cu \
+-o ./libcompcore.o && 
+g++ -std=c++14 -fPIC -shared \
+./*.cpp \
+./libcompcore.o \
+-I /usr/include/python3.10 \
+-L /usr/lib/python3.10 \
+-lpython3.10 \
+-I../pybind11/include \
+-I/usr/local/cuda-12.3/include \
+-L/usr/local/cuda-12.3/lib64 \
+-lcudart \
+-O3 -o ../lsa/compcore.so
+
+python m.py 
