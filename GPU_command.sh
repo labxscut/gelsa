@@ -31,7 +31,7 @@ else
     pip install scipy statsmodels pandas numpy argparse
 fi
 
-py=$(python3 --version 2>&1 | cut -d' ' -f2 | cut -d. -f1-2)
+# py=$(python3 --version 2>&1 | cut -d' ' -f2 | cut -d. -f1-2)
 
 if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip uninstall --break-system-packages lsa
@@ -40,7 +40,7 @@ else
     sudo pip uninstall -y lsa
 fi
 
-sudo rm -rf /usr/local/lib/python3.8/dist-packages/lsa*
+# sudo rm -rf /usr/local/lib/python3.8/dist-packages/lsa*
 sudo rm -f /usr/local/bin/lsa_compute /usr/local/bin/m
 
 cd ./gelsa/
@@ -63,9 +63,9 @@ if [[ "$version_ubuntu" == "24.04" ]]; then   # 12.5.1
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I /usr/include/python$py \
-        -L /usr/lib/python$py \
-        -lpython$py \
+        -I /usr/include/python3.12 \
+        -L /usr/lib/python3.12 \
+        -lpython3.12 \
         -I../pybind11/include \
         -I/usr/local/cuda-12.5/include \
         -L/usr/local/cuda-12.5/lib64 \
@@ -89,9 +89,9 @@ elif [[ "$version_ubuntu" == "22.04" ]]; then   # 11.7.0
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I /usr/include/python$py \
-        -L /usr/lib/python$py \
-        -lpython$py \
+        -I /usr/include/python3.10 \
+        -L /usr/lib/python3.10 \
+        -lpython3.10 \
         -I../pybind11/include \
         -I/usr/local/cuda-11.7/include \
         -L/usr/local/cuda-11.7/lib64 \
@@ -115,9 +115,9 @@ elif [[ "$version_ubuntu" == "20.04" ]]; then   # 11.0.3
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I /usr/include/python$py \
-        -L /usr/lib/python$py \
-        -lpython$py \
+        -I /usr/include/python3.8 \
+        -L /usr/lib/python3.8 \
+        -lpython3.8 \
         -I../pybind11/include \
         -I/usr/local/cuda-11.0/include \
         -L/usr/local/cuda-11.0/lib64 \
