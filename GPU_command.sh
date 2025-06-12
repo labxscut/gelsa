@@ -73,6 +73,7 @@ if [[ "$version_ubuntu" == "24.04" ]]; then   # 12.5.1
         -O3 -o ../lsa/compcore.so
 
 elif [[ "$version_ubuntu" == "22.04" ]]; then   # 11.7.0
+
     sudo apt-get install -y gnupg2 gnupg1 software-properties-common
     wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
     sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600

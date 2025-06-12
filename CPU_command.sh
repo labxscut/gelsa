@@ -84,7 +84,7 @@ if [[ "$version_ubuntu" == "24.04" ]]; then
     sudo pip install --break-system-packages .   # setup.py自动识别
     pip install --break-system-packages scipy statsmodels pandas numpy argparse
 else
-    sudo pip install .
+    sudo pip install . 
 fi
 cd ../
 
