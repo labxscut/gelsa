@@ -67,8 +67,8 @@ if [[ "$version_ubuntu" == "24.04" ]]; then   # 12.5.1
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I ../../gelsa_env/include/python$py \
-        -L ../../gelsa_env/lib/python$py \
+        -I /usr/include/python$py \
+        -L /usr/lib/python$py \
         -lpython$py \
         -I../pybind11/include \
         -I/usr/local/cuda-12.5/include \
@@ -94,8 +94,8 @@ elif [[ "$version_ubuntu" == "22.04" ]]; then   # 11.7.0
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I ../../gelsa_env/include/python$py \
-        -L ../../gelsa_env/lib/python$py \
+        -I /usr/include/python$py \
+        -L /usr/lib/python$py \
         -lpython$py \
         -I../pybind11/include \
         -I/usr/local/cuda-11.7/include \
@@ -120,8 +120,8 @@ elif [[ "$version_ubuntu" == "20.04" ]]; then   # 11.0.3
         g++ -std=c++14 -fPIC -shared \
         ./*.cpp \
         ./libcompcore.o \
-        -I ../../gelsa_env/include/python$py \
-        -L ../../gelsa_env/lib/python$py \
+        -I /usr/include/python$py \
+        -L /usr/lib/python$py \
         -lpython$py \
         -I../pybind11/include \
         -I/usr/local/cuda-11.0/include \
@@ -132,14 +132,11 @@ elif [[ "$version_ubuntu" == "20.04" ]]; then   # 11.0.3
 fi
 
 cd ../
-if [[ "$version_ubuntu" == "24.04" ]]; then
-    sudo pip install --break-system-packages .   # setup.py自动识别
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
-else
-    sudo pip install .
-fi
+pip install .
 cd ../
+
+deactivate
 
 echo "Installation completed successfully!"
 echo "Please activate the virtual environment 'gelsa_env' first, run the command: source gelsa_env/bin/activate"
-echo "After activate the virtual environment 'gelsa_env', You can now run: sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo"
+echo "After activate the virtual environment 'gelsa_env', You can now run: lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo"
