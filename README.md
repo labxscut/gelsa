@@ -48,17 +48,15 @@ INSTALL
 -----------------
 (1). # for use #
 
-Currently, the package is maintained only for Linux (Ubuntu) due to compilation requirements for the core computational components.
+Currently, the package is maintained only for Linux (Ubuntu 20.04, 22.04, or 24.04) due to compilation requirements for the core computational components.
 
-Firstly, in Linux install the prerequisites: C++ (build-essential), Python(dev).
+To create an lsa package and computate by using cpu
 
-Then, download and unzip the latest main branch to the gelsa folder.
-
-        sudo bash CPU_command.sh               # make lsa package and computate by using cpu
+        sudo bash CPU_command.sh               
         sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
 
-To create an LSA (Latent Semantic Analysis) package with automatic GPU acceleration when available (requires Ubuntu 20.04, 22.04, or 24.04).
+To create an LSA package with automatic GPU acceleration when available (requires Ubuntu 20.04, 22.04, or 24.04).
 And regarding the GPU, the NVIDIA driver version should be as new as possible to ensure the corresponding GPU can be used for computation.
         
         sudo bash GPU_command.sh               
