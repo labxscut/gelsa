@@ -132,12 +132,7 @@ elif [[ "$version_ubuntu" == "20.04" ]]; then   # 11.0.3
 fi
 
 cd ../
-if [[ "$version_ubuntu" == "24.04" ]]; then
-    sudo pip install --break-system-packages .   # setup.py自动识别
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
-else
-    sudo pip install .
-fi
+pip install .
 cd ../
 
 echo "Installation completed successfully!"

@@ -49,18 +49,22 @@ INSTALL
 (1). # for use #
 
 Currently, the package is maintained only for Linux (Ubuntu 20.04, 22.04, or 24.04) due to compilation requirements for the core computational components.
+Deactivate all virtual environments. This software installation will create a virtual environment named 'gelsa_env', and the software will run within this environment.
+
 
 To create an lsa package and computate by using cpu
 
-        sudo bash CPU_command.sh               
-        sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
+        sudo bash CPU_command.sh   
+        source gelsa_env/bin/activate         # Activate the corresponding virtual environment(gelsa_env)    
+        lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
 
 To create an LSA package with automatic GPU acceleration when available (requires Ubuntu 20.04, 22.04, or 24.04).
 And regarding the GPU, the NVIDIA driver version should be as new as possible to ensure the corresponding GPU can be used for computation.
         
-        sudo bash GPU_command.sh               
-        sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
+        sudo bash GPU_command.sh    
+        source gelsa_env/bin/activate         # Activate the corresponding virtual environment(gelsa_env)             
+        lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo    # a test script is available
 
 
 (2). # for development #

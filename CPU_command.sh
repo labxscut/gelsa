@@ -12,81 +12,59 @@ else
     exit 2
 fi
 
-
-apt-get update && apt-get install -y wget sudo python3 python3-dev python3-pip
+apt-get update && apt-get install -y wget sudo
 sudo apt-get update && sudo apt-get install -y lsb-release
 
 version_ubuntu=$(lsb_release -sr)
-
 if [[ "$version_ubuntu" != "20.04" && "$version_ubuntu" != "22.04" && "$version_ubuntu" != "24.04" ]]; then
     echo "Please execute this file using Ubuntu 20.04, 22.04, or 24.04."
     exit 3
 fi
 
-if [[ "$version_ubuntu" == "24.04" ]]; then    
-    pip install --break-system-packages scipy
-    pip install --break-system-packages statsmodels
-    pip install --break-system-packages pandas
-    pip install --break-system-packages numpy
-    pip install --break-system-packages argparse
-else
-    pip install scipy statsmodels pandas numpy argparse
-fi
-# py=$(python3 --version 2>&1 | cut -d' ' -f2 | cut -d. -f1-2)
-# echo "$py"
+deactivate && conda deactivate # 关闭所有虚拟环境，此软件安装会创建一个虚拟环境gelsa_env，软件就在这个环境中运行
+rm -rf gelsa_env
+apt-get update
+apt-get install -y software-properties-common && add-apt-repository -y ppa:deadsnakes/ppa
+apt-get update
 
 if [[ "$version_ubuntu" == "24.04" ]]; then
-    sudo pip uninstall --break-system-packages lsa
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
-else
-    sudo pip uninstall -y lsa
+    apt-get install -y python3.12 python3.12-dev python3.12-venv python3-pip
+    python3.12 -m venv gelsa_env
+
+elif [[ "$version_ubuntu" == "22.04" ]]; then
+    apt-get install -y python3.10 python3.10-dev python3.10-venv python3-pip
+    python3.10 -m venv gelsa_env
+elif [[ "$version_ubuntu" == "20.04" ]]; then
+    apt-get install -y python3.8 python3.8-dev python3.8-venv python3-pip
+    python3.8 -m venv gelsa_env
 fi
 
-# sudo rm -rf /usr/local/lib/python$py/dist-packages/lsa*
-sudo rm -f /usr/local/bin/lsa_compute /usr/local/bin/m
+source gelsa_env/bin/activate
+pip install --upgrade pip
+pip install scipy statsmodels pandas numpy argparse
+py=$(python3 --version 2>&1 | cut -d' ' -f2 | cut -d. -f1-2)
+echo "$py"
 
+pip uninstall -y lsa
 cd ./gelsa/
 sudo rm -rf build/ dist/ lsa.egg-info/
 cd ./Cpu_compcore/
 
-
-if [[ "$version_ubuntu" == "24.04" ]]; then
-    g++ -std=c++11 -fPIC -shared \
+g++ -std=c++11 -fPIC -shared \
     ./*.cpp \
-    -I /usr/include/python3.12 \
-    -L /usr/lib/python3.12 \
-    -lpython3.12 \
+    -I /usr/include/python$py \
+    -L /usr/lib/python$py \
+    -lpython$py \
     -I../pybind11/include \
     -O3 -o ../lsa/compcore.so
-
-elif [[ "$version_ubuntu" == "22.04" ]]; then
-     g++ -std=c++11 -fPIC -shared \
-    ./*.cpp \
-    -I /usr/include/python3.10 \
-    -L /usr/lib/python3.10 \
-    -lpython3.10 \
-    -I../pybind11/include \
-    -O3 -o ../lsa/compcore.so
-
-elif [[ "$version_ubuntu" == "20.04" ]]; then
-    g++ -std=c++11 -fPIC -shared \
-    ./*.cpp \
-    -I /usr/include/python3.8 \
-    -L /usr/lib/python3.8 \
-    -lpython3.8 \
-    -I../pybind11/include \
-    -O3 -o ../lsa/compcore.so
-        
-fi
 
 cd ../
-if [[ "$version_ubuntu" == "24.04" ]]; then
-    sudo pip install --break-system-packages .   # setup.py自动识别
-    pip install --break-system-packages scipy statsmodels pandas numpy argparse
-else
-    sudo pip install . 
-fi
+pip install . 
 cd ../
+
+deactivate
 
 echo "Installation completed successfully!"
-echo "You can now run: sudo lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo"
+echo "Please activate the virtual environment 'gelsa_env' first, run the command: source gelsa_env/bin/activate"
+echo "After activate the virtual environment 'gelsa_env', You can now run: lsa_compute test.txt result -d 10 -r 1 -s 20 -p theo"
+
