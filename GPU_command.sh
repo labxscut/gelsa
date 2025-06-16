@@ -112,6 +112,8 @@ elif [[ "$version_ubuntu" == "20.04" ]]; then   # 11.0.3
     sudo apt-get update
     sudo apt-get install -y cuda-toolkit-11-0
 
+    sudo apt-get install -y gcc-9
+
     /usr/local/cuda-11.0/bin/nvcc -Xcompiler -fPIC \
         -ccbin /usr/bin/gcc-9 \
         -std=c++14 \
