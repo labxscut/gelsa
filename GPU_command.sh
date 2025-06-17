@@ -23,7 +23,7 @@ if [[ "$version_ubuntu" != "20.04" && "$version_ubuntu" != "22.04" && "$version_
 fi
 
 deactivate && conda deactivate # 关闭所有虚拟环境，此软件安装会创建一个虚拟环境gelsa_env，软件就在这个环境中运行
-rm -rf gelsa_env
+sudo rm -rf gelsa_env
 apt-get update
 apt-get install -y software-properties-common && add-apt-repository -y ppa:deadsnakes/ppa
 apt-get update
