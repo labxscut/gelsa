@@ -1,4 +1,4 @@
-GeLSA: a GPU-accelerated Local Similarity Analysis Tool
+GeLSA: a GPU-accelerated Local Similarity Analysis Software for Time-Series Data Analysis
 =========================================================
 
 INSTRODUCTION

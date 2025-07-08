@@ -8,7 +8,7 @@ def write_array_to_csv(array, filename):
     row_title_length = max(len('series{}'.format(i + 1)) for i in range(rows)) + 2
     with open(filename, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        col_titles = ['series{}'.format(i).ljust(col_title_length) for i in range(1, cols + 1)]
+        col_titles = ['time_point_{}'.format(i).ljust(col_title_length) for i in range(1, cols + 1)]
         writer.writerow(['#' + ''.ljust(row_title_length - 1)] + col_titles)
         
         for i in range(rows):
